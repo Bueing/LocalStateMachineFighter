@@ -1,3 +1,32 @@
 [gd_scene format=3 uid="uid://gbs8pyhuyeq2"]
 
+[ext_resource type="PackedScene" uid="uid://btbiuifm2rpgh" path="res://scenes/player.tscn" id="1_uwrxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cj0n"]
+size = Vector2(676, 20)
+
 [node name="Game" type="Node2D" unique_id=117856691]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1360803539]
+position = Vector2(326, 311)
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2015122207]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_8cj0n")
+debug_color = Color(0, 0.6, 1, 0.39215687)
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=1963174790]
+offset_left = -336.0
+offset_top = -10.0
+offset_right = 337.0
+offset_bottom = 8.0
+color = Color(0.84159845, 0, 0.16697362, 1)
+
+[node name="Player" parent="." unique_id=1339705551 instance=ExtResource("1_uwrxv")]
+position = Vector2(228, 174)
+input_prefix = "p1_"
+
+[node name="Player2" parent="." unique_id=1680414975 instance=ExtResource("1_uwrxv")]
+position = Vector2(475, 176)
+input_prefix = "p2_"

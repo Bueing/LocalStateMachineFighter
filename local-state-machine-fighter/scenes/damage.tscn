@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c15ha6kjkbrk5"]
+
+[ext_resource type="Script" uid="uid://bruai3elkpl4p" path="res://scripts/damage.gd" id="1_o8bkj"]
+[ext_resource type="Texture2D" uid="uid://b8ufaswplbawr" path="res://assets/Effects/Kick.png" id="1_y5wxv"]
+[ext_resource type="Texture2D" uid="uid://cklxys8wg4v65" path="res://assets/Effects/Flop.png" id="2_o8bkj"]
+[ext_resource type="Texture2D" uid="uid://bypwk4i7pf62j" path="res://assets/Effects/Punch.png" id="3_1qvvy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bxcvq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y5wxv")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o8bkj")
+}],
+"loop": true,
+"name": &"redwide",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1qvvy")
+}],
+"loop": true,
+"name": &"white",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7887l"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2mmk5"]
+radius = 3.0
+height = 28.0
+
+[node name="Damage" type="Area2D" unique_id=1954433745]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_o8bkj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2050032835]
+sprite_frames = SubResource("SpriteFrames_bxcvq")
+animation = &"white"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1758798149]
+shape = SubResource("CircleShape2D_7887l")
+
+[node name="CollisionShape2DWide" type="CollisionShape2D" parent="." unique_id=2001716677]
+position = Vector2(0, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2mmk5")
